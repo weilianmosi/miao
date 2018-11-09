@@ -46,20 +46,20 @@
           [class="a"] ul li:nth-child(n+4):nth-last-child(n+4){
             color: red;
           }
-          div.b>p~p~p+ul li:nth-child(-n+25){
+          div.b>p+p~ul li:nth-child(-n+25){
             color: red;
           }
-          div.b>p~p~p+ul li:nth-child(n+65){
+          div.b>p+p~ul li:nth-child(n+65){
             color: green;
           }
-          div.b>p~p~p+ul li:nth-child(n+35):nth-child(-n+50){
+          div.b>p+p~ul li:nth-child(n+35):nth-child(-n+50){
             color: blue;
           }
-           div:last-child>p+ul li:nth-child(2n),li:nth-child(3n){
+           div:last-child>p+ul li:nth-child(2n),div:last-child>p+ul li:nth-child(3n){
             color: red;
           }
-          }
-          div:last-child>p+ul li:nth-child(2),li:nth-child(3){
+          
+          div:last-child>p+ul li:nth-child(2),div:last-child>p+ul li:nth-child(3){
             color: black;
           }
           div:last-child>p+ul li:first-child{
