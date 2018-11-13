@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>normal-flow-horizontal</title>
+	<style type="text/css" media="screen">
+		div{
+  border:1px solid;
+  width:200px;
+  margin-top:20px;
+  margin-right:auto;
+  margin-left:auto;
+  background: #f00;
+}
+p:hover{
+  border:2px solid;
+  margin-right:-50px;
+  margin-left:-50px;
+  background: #00f;
+  }
+div.right{
+  direction:rtl;
+  margin-left:auto;
+  margin-right:20px;
+  }
+	</style>
+</head>
+<body>
+	<div>
+  <p>Lorem ipsum dolor sit amet, consectetur
+    adipisicing elit. Est rerum alias nemo, cum, 
+    quae magnam rem eveniet atque modi officia 
+    dolor sequi enim necessitatibus voluptas, 
+    sed, omnis explicabo voluptatibus delectus.</p>
+</div>
+  <div class="right">Lorem ipsum , 
+    fugit cto odit, eius voluptate 
+    molestiae aliquid consectetur 
+    eligendi cumque quis!</div>
+</body>
+</html>
