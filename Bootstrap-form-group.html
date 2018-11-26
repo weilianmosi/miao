@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+  	div{
+  display:table;
+  border-collapse:collapse;
+}
+span{
+  position:relative;
+  display:table-cell;
+  background-color:#ccc;
+  width:1%;
+}
+input{
+  display:table-cell;
+  width:100%;
+  height:50px;
+  margin:0px;
+  border:1px solid #ccc;
+  padding:0px;
+}
+div>span:first-child{
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+}
+div>span:last-child{
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+}
+
+  </style>
+</head>
+<body>
+  <div>
+    <span>$</span>
+    <input type="search" placeholder="Amout">
+    <span>.00</span>
+  </div>
+</body>
+</html>
