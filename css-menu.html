@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    body>ul {
+  list-style:none;
+  margin:0;
+  position:relative;
+}
+ul{
+  list-style:none;
+  white-space:nowrap;
+}
+li{
+  padding-right:20px;
+}
+li > ul>li{
+  display:none;
+}
+li:hover >ul>li{
+  display:block;
+}
+body>ul>li{
+  position:absolute;
+  
+}
+body>ul>li:nth-child(2){
+  left:160px;
+}
+body>ul>li:nth-child(3){
+  left:300px;
+}
+body>ul>li>ul>li{
+  position:absolute;
+  left:0
+}
+body>ul>li>ul>li:nth-child(2){
+  top:40px;
+}
+body>ul>li>ul>li:nth-child(3){
+  top:60px;
+}
+body>ul>li>ul>li>ul>li{
+  position:absolute;
+  top:0;
+  left:60px;
+}
+body>ul>li>ul>li>ul>li:nth-child(2){
+  top:20px;
+}
+body>ul>li>ul>li>ul>li:nth-child(3){
+  top:40px;
+}
+body>ul>li> ul>li>ul:before {
+  content:'>';
+  position:absolute;
+  top:0px;
+  right:0;
+}
+  </style>
+</head>
+<body>
+<ul>
+  <li>同学
+   <ul>
+     <li>同学1
+       <ul>
+         <li>性别</li>
+         <li>年龄</li>
+         <li>爱好</li>
+       </ul> 
+     </li>
+     <li>同学1</li>
+     <li>同学1</li>
+   </ul>
+  </li>
+  <li>同事
+    <ul>
+      <li>同事2</li>
+      <li>同事2</li>
+    </ul>
+  </li>
+  <li>好友
+    <ul>
+      <li>好友1</li>
+      <li>好友1</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>
