@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+section{
+  width:500px;
+  height:400px;
+  position:relative;
+  transform-style:preserve-3d;
+  transform:perspective(800px) rotateX(0deg) rotatey(0deg);
+  animation:rotate3d 30s infinite;
+}
+@keyframes rotate3d{
+  from{
+    transform:rotatex(0deg) rotateZ(0deg);
+  }
+  to{
+    transform:rotatex(360deg) rotateZ(360deg);
+  }
+}
+div{
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:150px;
+  left:150px;
+}
+div:nth-child(1){
+  transform:rotateY(0deg) translateZ(50px);
+  background-color: red;
+}
+div:nth-child(2){
+  transform:rotateY(90deg)translateZ(50px);
+  background-color: blue;
+}
+div:nth-child(3){
+  transform:rotateY(180deg)translateZ(50px);
+  background-color: #ff6700;
+}
+div:nth-child(4){
+  transform:rotateY(-90deg) translateZ(50px);
+  background-color: purple;
+}
+div:nth-child(5){
+  transform:rotateX(90deg)translateZ(50px); 
+  background-color: aqua;
+}
+div:nth-child(6){
+  transform:rotateX(-90deg) translateZ(50px);
+  background-color: maroon;
+}
+  </style>
+</head>
+<body>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+</body>
+</html>

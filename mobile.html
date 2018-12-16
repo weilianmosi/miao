@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mobile</title>
+	<meta name="viewport" content="width=device-width">
+	<style>
+		html{
+			font-size: calc(100vw / 8);
+	}
+		div{
+			width:2.64rem;
+			height: 3.96rem;
+			position:relative;
+			/*filter: saturate(0%);*/
+			filter: grayscale(100%);
+		}
+		div>img{
+			width:100%;
+		}
+		div:hover{
+			z-index:2;
+			/*filter: saturate(100%);*/
+			filter:grayscale(0);
+		}
+		div:nth-child(1){
+			margin-left: 1.32rem;
+			margin-top:0.8rem;
+		}
+		div:nth-child(2){
+			margin-left: 2.68rem;
+			margin-top:-2.60rem;
+			z-index: 1;
+		}
+		div:nth-child(3){
+			margin-left: 4rem;
+			margin-top:-2.6rem;
+		}
+	</style>
+</head>
+<body>
+		<div >
+			<img srcset="https://daneden.imgix.net/2018/10/portrait.jpg?auto=format&amp;dpr=2&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=400&amp;ixlib=react-7.2.0 2x, https://daneden.imgix.net/2018/10/portrait.jpg?auto=format&amp;dpr=3&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=400&amp;ixlib=react-7.2.0 3x" src="https://daneden.imgix.net/2018/10/portrait.jpg?auto=format&amp;dpr=1&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=400&amp;ixlib=react-7.2.0">
+		</div>
+		<div>
+			<img srcset="https://daneden.imgix.net/2018/10/GenArt.png?auto=format&amp;dpr=2&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=500&amp;ixlib=react-7.2.0 2x, https://daneden.imgix.net/2018/10/GenArt.png?auto=format&amp;dpr=3&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=500&amp;ixlib=react-7.2.0 3x" src="https://daneden.imgix.net/2018/10/GenArt.png?auto=format&amp;dpr=1&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=500&amp;ixlib=react-7.2.0">
+		</div>
+		<div>
+			<img srcset="https://daneden.imgix.net/2018/10/home.jpg?auto=format&amp;dpr=2&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=400&amp;ixlib=react-7.2.0 2x, https://daneden.imgix.net/2018/10/home.jpg?auto=format&amp;dpr=3&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=400&amp;ixlib=react-7.2.0 3x" src="https://daneden.imgix.net/2018/10/home.jpg?auto=format&amp;dpr=1&amp;fm=pjpg&amp;crop=faces&amp;fit=max&amp;w=300&amp;h=400&amp;ixlib=react-7.2.0">
+		</div>
+</body>
+</html>

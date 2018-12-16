@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+  section,div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+button{
+  margin-top:50px ;
+  display:block;
+  min-width:160px;
+  height:47px;
+  border:none;
+  border-radius:5px;
+  background-color: #ff3d2e;
+  color:white;
+  position:relative;
+  font-size:16px;
+}
+button::before{
+  font-size:12px;
+  z-index:-1;
+}
+section button[data-balloon-pos="up"]::before{
+  content:'what up!';
+  font-size:12px;
+  opacity:0;
+  position:absolute;
+   background-color: #282416;
+  width:58.625px;
+  height:16px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:-20px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+section button[data-balloon-pos="up"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color: #282416 transparent transparent transparent;
+   transition:.2s;
+}
+section button[data-balloon-pos="up"]:hover:before{
+  opacity:1; 
+  top:-30px;
+}
+section button[data-balloon-pos="up"]:hover:after{
+  opacity:1;
+  top:-10px;
+}
+section button[data-balloon-pos="left"]::before{
+  content:'what up!';
+  font-size:12px;
+  opacity:0;
+  position:absolute;
+   background-color: #282416;
+  width:58.625px;
+  height:16px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:50%;
+  left:-49px;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+section button[data-balloon-pos="left"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:50%;
+  left:0;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color:  transparent transparent transparent #282416;
+   transition:.2s;
+}
+section button[data-balloon-pos="left"]:hover:before{
+  opacity:1; 
+  left:-59px;
+}
+section button[data-balloon-pos="left"]:hover:after{
+  opacity:1;
+  left:-10px;
+}
+section button[data-balloon-pos="right"]::before{
+  content:'what up!';
+  font-size:12px;
+  opacity:0;
+  position:absolute;
+   background-color: #282416;
+  width:58.625px;
+  height:16px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:50%;
+  right:-131px;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+section button[data-balloon-pos="right"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:50%;
+  right:-16px;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color:  transparent #282416 transparent transparent ;
+   transition:.2s;
+}
+section button[data-balloon-pos="right"]:hover:before{
+  opacity:1; 
+  right:-141px;
+}
+section button[data-balloon-pos="right"]:hover:after{
+  opacity:1;
+  right:-26px;
+}
+section button[data-balloon-pos="down"]::before{
+  content:'what up!';
+  font-size:12px;
+  opacity:0;
+  position:absolute;
+  background-color: #282416;
+  width:58.625px;
+  height:16px;
+  padding:6px 12px;
+  border-radius:3px;
+  bottom:-50px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+section button[data-balloon-pos="down"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  bottom:-16px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color:  transparent  transparent #282416  transparent ;
+   transition:.2s;
+}
+section button[data-balloon-pos="down"]:hover:before{
+  opacity:1; 
+  bottom:-60px;
+}
+section button[data-balloon-pos="down"]:hover:after{
+  opacity:1;
+ bottom:-26px;
+}
+button:hover{
+  background-color: #e01909;
+  cursor:pointer;
+}
+div button[data-balloon-length="small"]::before{
+  content:'Hi';
+  opacity:0;
+  position:absolute;
+  background-color: #282416;
+  width:56px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:-21px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+ div button[data-balloon-length="small"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color: #282416 transparent transparent transparent;
+   transition:.2s;
+}
+div button[data-balloon-length="small"]:hover:before{
+  opacity:1; 
+  top:-31px;
+  z-index:1;
+}
+div button[data-balloon-length="small"]:hover:after{
+  opacity:1;
+  top:-10px;
+}
+div button[data-balloon-length="medium"]::before{
+  content:'Now that s a super big text we have over here right? Lorem ipsum dolor sit Im done.';
+  opacity:0;
+  position:absolute;
+  background-color: #282416;
+  width:126px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:-42px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+ div button[data-balloon-length="medium"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color: #282416 transparent transparent transparent;
+   transition:.2s;
+}
+div button[data-balloon-length="medium"]:hover:before{
+  opacity:1; 
+  top:-52px;
+  z-index:1;
+}
+div button[data-balloon-length="medium"]:hover:after{
+  opacity:1;
+  top:-10px;
+}
+div button[data-balloon-length="large"]::before{
+  content:'What about something really big? This may surpass your window dimensions. Imagine youre on that boring class with that boring teacher and you didnt slept so well last night. Suddenly youre sleeping in class. Can you believe it?!';
+  opacity:0;
+  position:absolute;
+  background-color: #282416;
+  width:236px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:-56px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+ div button[data-balloon-length="large"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color: #282416 transparent transparent transparent;
+   transition:.2s;
+}
+div button[data-balloon-length="large"]:hover:before{
+  opacity:1; 
+  top:-66px;
+  z-index:1;
+}
+div button[data-balloon-length="large"]:hover:after{
+  opacity:1;
+  top:-10px;
+}
+div button[data-balloon-length="Xlarge"]::before{
+  content:'What about something really big? This may surpass your window dimensions. Imagine youre on that boring class with that boring teacher and you didnt slept so well last night. Suddenly youre sleeping in class. Can you believe it?!';
+  opacity:0;
+  position:absolute;
+  background-color: #282416;
+  width:356px;
+  padding:6px 12px;
+  border-radius:3px;
+  top:-42px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+ div button[data-balloon-length="Xlarge"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color: #282416 transparent transparent transparent;
+   transition:.2s;
+}
+div button[data-balloon-length="Xlarge"]:hover:before{
+  opacity:1; 
+  top:-52px;
+  z-index:1;
+}
+div button[data-balloon-length="Xlarge"]:hover:after{
+  opacity:1;
+  top:-10px;
+}
+div button[data-balloon-length="fit"]::before{
+  content:'What about something really big? This may surpass your window dimensions. Imagine youre on that boring class with that boring teacher and you didnt slept so well last night. Suddenly youre sleeping in class. Can you believe it?!';
+  opacity:0;
+  box-sizing:border-box;
+  position:absolute;
+  background-color: #282416;
+  width:100%;
+  padding:6px 12px;
+  border-radius:3px;
+  top:-70px;
+  left:50%;
+  transform:translate(-50%,-50%);
+   transition:.2s;
+}
+ div button[data-balloon-length="fit"]:after{
+  content:'';
+  opacity:0;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border:8px solid;
+  border-color: #282416 transparent transparent transparent;
+   transition:.2s;
+}
+div button[data-balloon-length="fit"]:hover:before{
+  opacity:1; 
+  top:-80px;
+  z-index:1;
+}
+div button[data-balloon-length="fit"]:hover:after{
+  opacity:1;
+  top:-10px;
+}
+  </style>
+</head>
+<body>
+  <section>
+    <button data-balloon-pos="up">Hover me!</button>
+    <button data-balloon-pos="left">Hover me!</button>
+    <button data-balloon-pos="right">Hover me!</button>
+    <button data-balloon-pos="down">Hover me!</button>
+  </section>
+  <div>
+    <button data-balloon-pos="up" data-balloon-length="small">I'm a amall tooltip.</button>
+    <button data-balloon-pos="up" data-balloon-length="medium">I'm a medium tooltip.</button>
+    <button data-balloon-pos="up" data-balloon-length="large">I'm a large tooltip.</button>
+    <button data-balloon-pos="up" data-balloon-length="Xlarge">I'm a Xlarge tooltip.</button>
+    <button data-balloon-pos="up" data-balloon-length="fit">My width will fit to element</button>
+  </div>
+</body>
+</html>
