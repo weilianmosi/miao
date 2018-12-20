@@ -100,7 +100,8 @@
 <script id="ch0103/06" type="010306">
 	var a = +prompt('请输入确诊数','')
 	var b = +prompt('请输入死亡数','')
-	var c = b/a * 100
+	var c = b / a * 100
+	c = c.toFixed(3)
 	c = c + '%'
 	console.log(c)
 </script>
@@ -215,10 +216,12 @@
 </script>
 <script id="ch0104/01" type="010401">
 	var N = +prompt('请输入整数','')
-	if (N > 0)
+	if (N > 0){
 		console.log('position')
-	else if( N == 0)
+	}
+	else if( N == 0){
 		console.log('zero')
+	}
 	else
 		console.log('negative')
 </script>
@@ -280,22 +283,20 @@
 	var a = +prompt('请输入','')
 	if ( a % 3 == 0 && a % 5 == 0 && a % 7 == 0)
 		console.log(3,5,7)
-	else {
-		if ( a % 3 == 0 && a % 5 == 0 && a % 7 != 0)
-			console.log(3,5)
-		if ( a % 3 == 0 && a % 5 != 0 && a % 7 == 0)
-			console.log(3,7)
-		if ( a % 3 != 0 && a % 5 == 0 && a % 7 == 0)
-			console.log(5,7)
-		if ( a % 3 == 0 && a % 5 != 0 && a % 7 != 0)
-			console.log(3)
-		if ( a % 3 != 0 && a % 5 == 0 && a % 7 != 0)
-			console.log(5)
-		if ( a % 3 != 0 && a % 5 != 0 && a % 7 == 0)
-			console.log(7)
-		if ( a % 3 != 0 && a % 5 != 0 && a % 7 != 0)
-			console.log('n') 
-	}
+	if ( a % 3 == 0 && a % 5 == 0 && a % 7 != 0)
+		console.log(3,5)
+	if ( a % 3 == 0 && a % 5 != 0 && a % 7 == 0)
+		console.log(3,7)
+	if ( a % 3 != 0 && a % 5 == 0 && a % 7 == 0)
+		console.log(5,7)
+	if ( a % 3 == 0 && a % 5 != 0 && a % 7 != 0)
+		console.log(3)
+	if ( a % 3 != 0 && a % 5 == 0 && a % 7 != 0)
+		console.log(5)
+	if ( a % 3 != 0 && a % 5 != 0 && a % 7 == 0)
+		console.log(7)
+	if ( a % 3 != 0 && a % 5 != 0 && a % 7 != 0)
+		console.log('n') 
 </script>
 <script id="ch0104/10" type="010410">
 	var a = +prompt('请输入','')
@@ -329,7 +330,7 @@
 	var y
 	if (x >= 0 && x < 5){
 		y = -x + 2.5
-		y=y.toFixed(3)
+		y = y.toFixed(3)
 		console.log(y)
 	}
 	if (x >= 5 && x < 10){
@@ -337,10 +338,11 @@
 		y = y.toFixed(3)
 		console.log(y)
 	}
-	if (x >= 10 && x < 20)  
+	if (x >= 10 && x < 20){  
 	  y = x / 2 - 1.5
 	  y = y.toFixed(3)
 	  console.log(y)
+	}
 </script>
 <script id="ch0104/14" type="010414">
 	var a = +prompt('请输入','')
@@ -406,11 +408,11 @@
 	var z =  prompt('请输入运算符','')
 	if (z == '+')
 	    console.log(x + y)
-	if( z == '-')
+	else if( z == '-')
 		console.log(x - y)
-	if (z == '*')
+	else if (z == '*')
 		console.log(x * y)
-	if (z == '/'){
+	else if (z == '/'){
 		if (y == 0)
 			console.log('Divided by zero')
 		else
@@ -435,7 +437,7 @@
 		x1=-b / (2 * a)
 		x1= x1.toFixed(5)
 		console.log('x1=x2=' + x1)
-	} else 
+	} else {
 		var e,f 
 		e = -b / (2 * a)
 		f = (Math.sqrt(4 * a * c-b * b))/(2 * a)
@@ -444,6 +446,7 @@
 		x1 = e + "+" + f+'i'
 		x2 = e + '-' + f +'i'
 		console.log('x1='+ x1,'x2='+ x2)
+	}
 </script>
 <script id="ch0104/21" type="010421">
 	var n = +prompt('请输入','')
