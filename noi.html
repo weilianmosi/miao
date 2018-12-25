@@ -745,11 +745,14 @@
     b = a - yusuan + c 
     c = b % 100
     if (b < 0) {
-      console.log(-i)
       break
-    } else 
+    } 
+    else 
       d = Math.floor(b / 100) * 100 + d
   }
+  if (b < 0) {
+  console.log(-i)
+  } else
   console.log(1.2 * d + c)
 </script>
 <script id="ch0105/23" type="010523">
@@ -771,7 +774,7 @@
   for (var i = 0 ; i < n ; i++){
     var ph = +prompt()
     var pl = +prompt()
-    if (ph >= 90 && ph <= 140 && pl >= 60 && pl <= 90){
+    if ((ph >= 90 && ph <= 140) && (pl >= 60 && pl <= 90){
       a = a + 1
     }
   }
@@ -779,18 +782,21 @@
 </script>
 <script id="ch0105/25" type="010525">
   for (var a = 1 ; a <= 6 ; a++) {
-    for (var b = 1 ; b <= 6 ; b++) {
-      for (var c = 1 ; c <= 6 ; c++) {
-        var base7 = a * 49 + b * 7 + c 
-        var base9 = c * 81 + b * 9 + a
-        if (base7 === base9) {
-          break
+    for (var b = 0; b <= 6 ; b++) {
+      for (var c = 0 ; c <= 6 ; c++) { 
+        if (a * 49 + b * 7 + c === c * 81 + b * 9 + a) {
+          var e = a
+          var f = b
+          var g = c
         }
       }
     }
   }
-  var base = a * 7 * 7 + b * 7 + c
-  console.log(base , base7 , base9)
+  var base10 = e * 49 + f * 7 + g
+  console.log(base10)
+  console.log('' + e + f + g)
+  console.log('' + g + f + e)
+
 </script>
 <script id="ch0105/26" type="010526">
   var n = +prompt()
@@ -870,8 +876,20 @@
       console.log('YES') 
   } else console.log('NO')
 </script>
-<script id="ch0105/31" type="">
-   
+<script id="ch0105/31" type="010531">
+   var n = +prompt()
+   var m = +prompt()
+   var a 
+   for (var i = 1; i <= n; i++) {//灯的编号 
+     a = 0
+     for (var j = 1; j <= i && j <= m; j++) { //人的编号
+        if (i % j == 0) { //编号为i的灯被编号为j的人处理
+          a++ // 编号为i的灯被处理的次数
+        }
+     } 
+     if (a % 2 == 1) //判断编号为i的灯是否被处理了奇数次，若是，则输出编号为i的灯
+      console.log(i)
+   }
 </script>
 <script id="ch0105/32" type="010532">
    var n = +prompt()
@@ -993,7 +1011,40 @@
   console.log(s)
 </script>
 <script id="ch0105/42" type="010542">
-  
+  var h = +prompt()
+  var w = +prompt()
+  var a =  prompt('请输入')
+  var s = ''
+  var b = +prompt('请输入0或1')
+  if (b == 1) {
+    for (var i = 1; i <= h; i++) {
+      
+      for (var j =1; j <= w; j++){
+         s += a
+      }
+      s += '\n' 
+    }
+  } else {
+    debugger;
+
+      for (var i = 1; i <= h; i++) {
+        if (i == 1 || i == h) { 
+          for (var j =1; j <= w; j++) {
+            s += a
+          }
+        } else {
+          for (var j = 1; j<= w ; j++) {
+            if (j == 1 || j == w) {
+              s += a
+            }
+            else s += ' '
+          }
+         s += ''
+        }
+        s += '\n'
+      }
+    }
+ console.log(s)
 </script>
 <script id="ch0105/43" type="010543">
   var n = +prompt()
@@ -1007,8 +1058,27 @@
   }
   console.log(b)
 </script>
-<script id="ch0105/44" type="">
- 
+<script id="ch0105/44" type="010544">
+  var n = +prompt()
+  var sum = 0 
+  var zhishu = 0
+  var a , i = 0
+  for (var a = 2 ; ; a++){
+      for (j = 2 ; j < a ; j++) {
+        if (a % j == 0 ) {
+          zhishu = 1
+          break 
+      } else 
+        zhishu = 0
+     } 
+    if (!zhishu) {
+      i++
+    }
+    if (i == n) {
+      break
+    }
+  }
+  console.log(a)
 </script>
 <script id="ch0105/45" type="010545">
   var n = +prompt()
@@ -1024,4 +1094,311 @@
   }
   add = (1 + i) * (n - (sum - i -1)) + sumg
   console.log(add)
+</script>
+<script id="sort" sample-input="4 1 7" sample-output="1 4 7" comment="输入三个数，把此三个数按升序输出" type="x">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var max , min , med
+  if (a >= b) {
+    if (b >= c) {
+      min = c
+      med = b
+      max = a
+    } else if (a > c) {
+      min = b
+      med = c 
+      max = a
+    } else {
+      min = b 
+      med = a 
+      max = c
+    }
+  } else if (a >= c) {
+    min = c
+    med = a
+    max = b
+  } else if (b > c) {
+    min = a 
+    med = c 
+    max = b 
+  } else {
+    min = a 
+    med = b 
+    max = c
+  }
+  console.log(min , med , max)
+</script>
+
+题目：水仙花数。水仙花数是指一个N位的十进制数，其各位数的N次方的和等于它自己。
+如：153 =　1的三次方+5的三次方+3的三次方，则153就是一个水仙花数
+或：1634 =　1的四次方+6的四次方+3的四次方+4的四次方
+因为1634是一个四位数。
+找出100到100000以内所有的水仙花数。
+<script id="narcissistic " sample-input="153" sample-output="YES" comment="判断一个数是否为水仙花数" type="x">
+  var n = +prompt()
+  var i = 0
+  var a , b = n ,s = 0
+  while (b != 0) {
+    b = Math.floor(b / 10)
+    i++
+  }
+  b = n 
+  while (b != 0) {
+    a = b % 10
+    b = Math.floor(b / 10)
+    s += Math.pow(a,i)
+  }
+  if (s == n){
+    console.log('YES')
+  } else {
+  console.log('NO')
+}
+</script>
+<script id="narcissistics" sample-input="" sample-output="" comment="找出100到10000以内所有的水仙花数" type="x">
+  for (var j = 100; j <= 10000 ;j++) {
+  var a , b = j ,s = 0 ,i = 0
+  while (b != 0) {
+    b = Math.floor(b / 10)
+    i++
+  }
+  b = j 
+  while (b != 0) {
+    a = b % 10
+    b = Math.floor(b / 10)
+    s += Math.pow(a,i)
+  }
+  if (s == j){
+    console.log(j)
+  }
+}
+</script>
+<script id="palindrom" sample-input="12321" sample-output="YES" comment="判断一个非负整数是否为回文数字" type="x">
+  var n = +prompt()
+  var a , b = n , i = 0 , s = 0
+  if (n == 0) {
+    console.log('YES')
+  } else {
+    while (b != 0) {
+      a = b % 10
+      b = Math.floor(b / 10)
+      i++
+    }
+    b = n
+    while (b != 0) {
+      a = b % 10
+      b = Math.floor(b / 10) 
+      s = s + a * Math.pow(10 , --i)
+    }
+    if (s == n) {
+      console.log('YES')
+    } else {
+      console.log('NO')
+    }
+  }
+  
+</script>
+
+<script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几">
+
+  
+</script>
+<script id="complete-number" sample-input="6" sample-output="YES" comment="判断一个数是否为完全数" type="x">
+  var n = +prompt()
+  var a = 0
+  for (var i = n - 1; i >= 1; i--) {
+    if (n % i == 0)
+      a = a + i
+  }
+  if (a == n) {
+    console.log('YES')
+  } else {
+    console.log('NO')
+}
+</script>
+<script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数" type="x">
+  var s = 0
+  debugger;
+
+  for (var j = 2; j <= 10000; j++) {
+    for (var i = j - 1; i >= 1; i--) {
+      if (j % i == 0) {
+        s = s + i
+      }
+    }
+    if (s == j) {
+      console.log(j)
+    }
+    s = 0
+  }
+</script>
+<script id="prime" sample-input="7" sample-output="YES" comment="判断一个数是否为素数" type="x">
+    var n = +prompt()
+    debugger;
+    zhishu = true
+    if (n == 2) {
+      console.log('YES')
+    } else {
+      for (var i = 2 ; i < n ; i++) {
+        if (n % i == 0) {
+          zhishu = false
+          break
+        } else zhishu = true
+      }
+      if (zhishu) {
+        console.log('YES')
+      } else {
+        console.log('NO')
+    }
+    }
+</script>
+<script id="primes" sample-input="" sample-output="" comment="输出100以内所有的素数" type="x">
+  var zhishu = true
+  debugger;
+  for (var i = 2 ; i <= 100; i++) {
+    if (i == 2) {
+      console.log(i)
+    } else {
+      for (var j = 2 ; j < i; j++) {
+        if (i % j == 0) {
+            zhishu = false
+            break
+        } else zhishu = true
+      }
+      if (zhishu) {
+        console.log(i)
+      }
+    }
+  }
+</script>
+<script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串，即实现Number函数的功能，不可使用+号或者Number函数" type="x">
+  var n = prompt()
+  var a 
+  a = n / 1
+  if (!isNaN(a)) {
+    console.log(a)
+  }
+</script>
+<script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数" type="x">
+  var zuida = function (n,m) {
+    var result
+    if (n > m) {
+      while (n - m != 0) {
+        result = n - m 
+        if (result > m) {
+          n = result
+        } else {
+          n = m
+          m = result
+        }
+      }
+      return result
+    }
+    else {
+      while (m - n != 0) {
+         result = m - n 
+        if (result > n) {
+          m = result
+        } else {
+          m = n
+          n = result
+        }
+      }
+      return result
+    }
+  }
+  var n = +prompt()
+  var m = +prompt()
+  var zuixiao = n * m /(zuida(n,m))
+  console.log(zuixiao,zuida)
+</script>
+
+题目：敲7。输出1到100以内所有7的倍数以及数字中包含7的数，如7（7的倍数），37（不是倍数但数位中包含7）都需要输出，依次类推
+<script id="7" sample-input="" sample-output="" comment="敲7，输出7的倍数或数位中含有7的数如（21，27）" type="x">
+  for (var i = 1; i <= 100; i++) {
+    if (has7(i)) {
+      console.log(i)
+    }
+  }
+  function has7(n) {
+    let a , b = n 
+    let c = false
+    if (b % 7 != 0) {
+      while (b > 0) {
+        a = b % 10
+        if (a == 7) {
+          c = true
+          break
+        }
+        b = (b - a) / 10
+      }
+      if (c)
+        return n
+    } else {
+      return n
+    }
+  }
+</script>
+<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位" type="">
+  
+
+  
+</script>
+
+给定M和N，求从M个物体中选出N个的排列与组合的数量：
+Ｃ（ｍ，ｎ）
+Ａ（ｍ，ｎ）
+<script id="c&a" type="x">
+  let m = +prompt()
+  let n = +prompt()
+  console.log(C(m,n))
+  console.log(A(m,n))
+  function A(x,y) {
+    let a = b = 1 
+    for (var i = 1 ; i <= x ; i++) {
+      a *= i
+    }
+    for (var j = 1 ; j <=(x-y); j++) {
+      b *= j
+    }
+    return a / b
+  }
+  function C(x , y) {
+    let a = b = c = 1 
+    for (var i = 1 ; i <= x ; i++) {
+      a *= i
+    }
+    for (var j = 1 ; j <=(x-y); j++) {
+      b *= j
+    }
+    for (var k = 1; k<= y; k++) {
+      c *= k
+    }
+    return a / (b * c)
+  }
+</script>
+
+题目：给定一个数，对其进行四舍五入，如1.4输出1，1.6输出2
+<script id="round" type="x">
+  var n = +prompt()
+  console.log(round(n))
+  function round(x) {
+    let a , b 
+    if (n > 0) {
+      a = n % 1
+      if (a < 0.5) {
+        return n - a
+      } else {
+        return n - a + 1
+      }
+    } else {
+      n = -n
+      a = n % 1
+      if (a < 0.5) {
+        return -(n - a)
+      } else {
+        return -(n - a + 1)
+      }
+    }
+  }
 </script>
