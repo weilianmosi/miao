@@ -1139,6 +1139,9 @@
   var n = +prompt()
   var i = 0
   var a , b = n ,s = 0
+  if (b = 0) {
+    console.log('YES')
+  } else {
   while (b != 0) {
     b = Math.floor(b / 10)
     i++
@@ -1152,8 +1155,9 @@
   if (s == n){
     console.log('YES')
   } else {
-  console.log('NO')
-}
+    console.log('NO')
+  }
+  }
 </script>
 <script id="narcissistics" sample-input="" sample-output="" comment="找出100到10000以内所有的水仙花数" type="x">
   for (var j = 100; j <= 10000 ;j++) {
@@ -1199,8 +1203,54 @@
   
 </script>
 
-<script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几">
-
+<script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几" type="x">
+  var y = +prompt()
+  var m = +prompt()
+  console.log(weekDay(y, m))
+  function dayofmonth(y,m) {
+    switch(m) {
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        return 30
+      case 2 :
+        if (shiRunNian(y)) {
+          return 29
+        } else {
+            return 28
+        }
+      default :
+        return 31
+    }
+  }
+  function shiRunNian(y) {
+    return y % 400 == 0 || (y % 4 == 0 && y % 100 !=0)
+  }
+  function daysbefore(y,m) {
+    var days = 0
+    for (var year = 1; year < y; year++ ) {
+      if (shiRunNian(year)) {
+        days += 366
+      } else {
+        days += 365
+      }
+    }
+    for (var month = 1; month<m; month++) {
+      days += dayofmonth(y,month)
+    }
+    return days
+  }
+  function daysbefore2(y,m) {
+    var days = (y - 1) * 365 + Math.floor((y - 1)/4) - Math.floor((y-1)/100) + Math.floor((y - 1)/400)
+    for (var i = 1; i < m; i++) {
+      days += dayofmonth(y,i)
+    }
+    return days 
+  }
+  function weekDay(y, m) {
+    return (daysbefore(y, m) + 1) % 7
+  }
   
 </script>
 <script id="complete-number" sample-input="6" sample-output="YES" comment="判断一个数是否为完全数" type="x">
@@ -1272,12 +1322,41 @@
   }
 </script>
 <script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串，即实现Number函数的功能，不可使用+号或者Number函数" type="x">
-  var n = prompt()
-  var a 
-  a = n / 1
-  if (!isNaN(a)) {
-    console.log(a)
+  function char(n) {
+    switch(n) {
+      case 1:
+      return '1' 
+      case 2:
+      return '2' 
+      case 3:
+      return '3' 
+      case 4:
+      return '4' 
+      case 5:
+      return '5' 
+      case 6:
+      return '6' 
+      case 7:
+      return '7' 
+      case 8:
+      return '8' 
+      case 9:
+      return '9' 
+      case 0:
+      return '0' 
+    } 
   }
+    function itob(n) {
+      var result = ''
+      while (n>0) {
+        d = n % 10
+        result = char(d) + result
+        n = (n - d) / 10
+      }
+      return result
+    }   
+    var n = +prompt()
+    console.log(itob(n))
 </script>
 <script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数" type="x">
   var zuida = function (n,m) {
@@ -1339,10 +1418,16 @@
     }
   }
 </script>
-<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位" type="">
-  
-
-  
+<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位" type="x">
+  var n = +prompt()
+  console.log(sqrt(n))
+  function sqrt(n) {
+    var a = 1 
+    while (Math.abs(a * a - n) > 0.0001) {
+      a = (a + n / a) / 2
+    }
+    return a 
+  }
 </script>
 
 给定M和N，求从M个物体中选出N个的排列与组合的数量：
@@ -1402,3 +1487,12 @@
     }
   }
 </script>
+<script id="kingmonkey">
+ 
+</script>
+<script id=""></script>
+<script id=""></script>
+<script id=""></script>
+<script id=""></script>
+<script id=""></script>
+<script id=""></script>
