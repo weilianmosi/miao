@@ -117,6 +117,7 @@ var weilianmosi = function(){
     compact: compact,
     drop: drop,
     dropRight: dropRight,
+    fill: fill,
     flatten: flatten,
     flattenDeep: flattenDeep,
     flattenDepth: flattenDepth,
