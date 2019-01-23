@@ -112,6 +112,177 @@ var weilianmosi = function(){
     }
     return result
   }
+  function join (array, separator = ',') {
+    var result = ''
+    for (var i = 0; i < array.length - 1; i++) {
+      result += array[i] +  separator
+    }
+    result = result + array[i]
+    return result
+  }
+  function last(array) {
+    return array.pop()
+  }
+  function lastIndexOf(array,value,fromIndex = array.length - 1) {
+    for (var i = fromIndex; i >= 0; i--) {
+      if (array[i] == value) {
+        return i 
+      }
+    }
+    return -1
+  }
+  function nth(array, n = 0) {
+    n = Math.abs(n)
+    if ( n >= array.length) {
+      return undefined
+    } else {
+      return array[n]
+    }
+  }
+  function pull(array ,...value) {
+    var b = 0
+    var array1 = []
+    var flag = true
+     for (var i = 0; i < array.length; i++) {
+        for (var j of value){
+          if (array[i] == j){
+            flag = false
+             break   
+          } else {
+            flag = true
+          }
+        }
+        if (flag) {
+          array[b] = array[i]
+          b++
+        }
+        
+     }
+     array.splice(b)
+     return array
+  }
+  function pullAll(array, values) {
+    var b = 0
+    var array1 = []
+    var flag = true
+     for (var i = 0; i < array.length; i++) {
+        for (var j of values){
+          if (array[i] == j){
+            flag = false
+             break   
+          } else {
+            flag = true
+          }
+        }
+        if (flag) {
+          array[b] = array[i]
+          b++
+        }
+        
+     }
+     array.splice(b)
+     return array
+  }
+  // function difference (array, values) {
+  //   var result = []
+  //   var map = {}
+
+  // }
+  function reverse(array) {
+    var l = array.length
+    for (var i = 0; i < Math.floor(l / 2); i++) {
+        let tmp = array[l - 1 - i]
+        array[l - 1 - i] = a[i] 
+        array[i] = tmp
+    }
+    return array
+  }
+  function sortedIndex(array,value) {
+    var l = 0
+    var r = array.length - 1
+    if (array[l] >= value) {
+      array.unshift(value)
+    } else if(array[r] <= value) {
+      array.push(value)
+    } else {
+        while (l != r) {
+        if (array[l] < value) {
+          l++
+        } else if (array[r] >= value) {
+          r--
+        } 
+      }
+        var arr = array.slice(l)
+        array[l] = value 
+        var array = array.concat(arr)
+    }
+    return array.indexOf(value)
+  }
+  function sortedIndexOf(ary,value) {
+    for (var i = 0; i < ary.length; i++) {
+      if (ary[i] === value) {
+        return i
+      }
+    }
+    return -1
+  }
+  function sortedLastIndex(ary,value) {
+    ary.push(value)
+    ary.sort((a,b) => a - b) 
+    for (var i = ary.length; i >= 0; i--) {
+      if (ary[i] == value) {
+        return i 
+      }
+    }
+    return -1
+  }
+  function sortedLastIndexOf() {
+    for (var i = ary.length - 1; i >= 0; i--) {
+      if (ary[i] === value) {
+        return i 
+      }
+    }
+    return -1
+  }
+  function sortedUniq(ary) {
+    var result = []
+    for (var i = 0; i < ary.length; i += c) {
+      var c = 1
+      for (var j = i + 1; j < ary.length; j++) {
+        if (ary[i] == ary[j]) {
+          c++
+          continue
+        } else {
+          result.push(ary[i])
+          break
+        }
+      }
+    }
+    result.push(ary[ary.length - 1])
+    return result
+  }
+  function tail(ary) {
+    return ary.slice(1)
+  }
+  function take(ary, n = 1) {
+    var result = []
+    if (n >= ary.length) {
+      n = ary.length
+    }
+    for (var i = 0; i < n; i++) {
+      result.push(ary[i])
+    }
+    return result
+  }
+  function takeRight (ary, n = 1) {
+    var result = []
+    if (n >= ary.length) {
+       n = 0
+    } else {
+       n = ary.length - n
+    }
+    return ary.slice(n)
+  }
   return {
     chunk: chunk,
     compact: compact,
@@ -126,6 +297,19 @@ var weilianmosi = function(){
     indexOf: indexOf,
     initial: initial,
     intersection: intersection,
+    join: join,
+    lastIndexOf: lastIndexOf,
+    nth: nth,
+    pull: pull,
+    pullAll: pullAll,
+    sortedIndex: sortedIndex,
+    sortedIndexOf: sortedIndexOf,
+    sortedLastIndex: sortedLastIndex,
+    sortedLastIndexOf: sortedLastIndexOf,
+    sortedUniq: sortedUniq,
+    tail: tail,
+    take: take,
+    takeRight: takeRight,
   }
 }()
 
