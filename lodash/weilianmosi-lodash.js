@@ -115,7 +115,7 @@ var weilianmosi = function(){
   function join (array, separator = ',') {
     var result = ''
     for (var i = 0; i < array.length - 1; i++) {
-      result += array[i] +  separator
+      result += array[i] + '' +  separator
     }
     result = result + array[i]
     return result
@@ -236,7 +236,7 @@ var weilianmosi = function(){
     }
     return -1
   }
-  function sortedLastIndexOf() {
+  function sortedLastIndexOf(ary) {
     for (var i = ary.length - 1; i >= 0; i--) {
       if (ary[i] === value) {
         return i 
