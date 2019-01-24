@@ -358,6 +358,17 @@ var weilianmosi = function(){
     }
     return result
   }
+  function zip (...arrays) {
+    var result = []
+    for (var i = 0; i < arrays[0].length; i++) {
+      var arr = []
+      for (var item of arrays) {
+        arr.push(item[i])
+      }
+      result.push(arr)
+    }
+    return result
+  }
   return {
     chunk: chunk,
     compact: compact,
@@ -373,6 +384,7 @@ var weilianmosi = function(){
     initial: initial,
     intersection: intersection,
     join: join,
+    last: last,
     lastIndexOf: lastIndexOf,
     nth: nth,
     pull: pull,
@@ -390,6 +402,7 @@ var weilianmosi = function(){
     unzip: unzip,
     without: without,
     xor: xor,
+    zip: zip,
   }
 }()
 
