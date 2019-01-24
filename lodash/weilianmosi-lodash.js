@@ -283,6 +283,81 @@ var weilianmosi = function(){
     }
     return ary.slice(n)
   }
+  function union (...arrays) {
+    var result = []
+    for (var item of arrays) {
+      for (var i = 0; i < item.length; i++) {
+        result.push(item[i])
+      }
+    }
+    var map = {}
+    var a = []
+    for (var i = 0; i < result.length; i++) {
+      if (!(result[i] in map)) {
+          a.push(result[i])
+          map[result[i]] = 1
+      }
+    }
+    return a
+  }
+  function uniq(array) {
+    var map = {}
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      if (!(array[i] in map)) {
+          result.push(array[i])
+          map[array[i]] = 1
+      }
+    }
+    return result
+  }
+  function unzip(array) {
+    var result = []
+    for (var i = 0; i < array[0].length; i++) {
+      var arr = []
+      for (var j = 0; j < array.length; j++) {
+        arr.push(array[j][i])
+      }
+      result.push(arr)
+    }
+    return result
+  }
+  function without (array,...values) {
+    var result = []
+    var map = {}
+    for (var i = 0; i < values.length; i++) {
+      if (!(values[i] in map)) {
+        map[values[i]] = 1
+      }
+    }
+    for (var item of array) {
+      if (!(item in map)) {
+        result.push(item)
+      }
+    }
+    return result
+  }
+  function xor(...arrays) {
+    var result = []
+    var arr = []
+    var map = {}
+    for (var item of arrays) {
+      for (var i = 0; i < item.length; i++) {
+        arr.push(item[i])
+        if (item[i] in map) {
+          map[item[i]]++
+        } else {
+          map[item[i]] = 1
+        }
+      }
+    }
+    for (var i = 0; i < arr.length; i++) {
+      if (map[arr[i]] == 1) {
+        result.push(arr[i])
+      }
+    }
+    return result
+  }
   return {
     chunk: chunk,
     compact: compact,
@@ -310,6 +385,11 @@ var weilianmosi = function(){
     tail: tail,
     take: take,
     takeRight: takeRight,
+    union: union,
+    uniq: uniq,
+    unzip: unzip,
+    without: without,
+    xor: xor,
   }
 }()
 
