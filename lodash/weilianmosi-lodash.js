@@ -183,11 +183,23 @@ var weilianmosi = function(){
      array.splice(b)
      return array
   }
-  // function difference (array, values) {
-  //   var result = []
-  //   var map = {}
-
-  // }
+  function difference (array, ...values) {
+    var result = []
+    var map = {}
+    for (var item of values) {
+      for (var i = 0; i < item.length; i++) {
+        if (!(item[i] in map)) {
+          map[item[i]] = 1
+        }
+      }
+    }
+    for (var item of array) {
+      if (!(item in map)) {
+        result.push(item)
+      }
+    }
+    return result
+  }
   function reverse(array) {
     var l = array.length
     for (var i = 0; i < Math.floor(l / 2); i++) {
@@ -369,11 +381,19 @@ var weilianmosi = function(){
     }
     return result
   }
+  function zipObject(props = [], values = []) {
+    var map = {}
+    for (var i = 0; i < props.length; i++) {
+      map[props[i]] = values[i]
+    }
+    return map
+  }
   return {
     chunk: chunk,
     compact: compact,
     drop: drop,
     dropRight: dropRight,
+    difference: difference,
     fill: fill,
     flatten: flatten,
     flattenDeep: flattenDeep,
@@ -403,6 +423,7 @@ var weilianmosi = function(){
     without: without,
     xor: xor,
     zip: zip,
+    zipObject: zipObject,
   }
 }()
 
