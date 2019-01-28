@@ -204,7 +204,7 @@ var weilianmosi = function(){
     var l = array.length
     for (var i = 0; i < Math.floor(l / 2); i++) {
         let tmp = array[l - 1 - i]
-        array[l - 1 - i] = a[i] 
+        array[l - 1 - i] = array[i] 
         array[i] = tmp
     }
     return array
@@ -411,6 +411,45 @@ var weilianmosi = function(){
     }
     return passed
   }
+  function includes(collection, value, fromIndex = 0) {
+    if (Array.isArray(collection)) {
+      if (collection.indexOf(value) >= fromIndex) {
+        return true
+      } else {
+        return false
+      }
+    }
+    if (typeof collection === 'string') {
+      if (collection.indexOf(value) >= fromIndex) {
+        return true
+      } else {
+        return false
+      }
+    }
+    if (typeof collection === 'object') {
+      for (var i in collection) {
+        if (collection[i] === value) {
+          return true
+        }
+      }
+      return false
+    }
+  }
+  function map(collection,iteratee) {
+    var result = []
+    if(Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
+        result.push(iteratee(collection[i],i,collection))
+      }
+      return result
+    }
+    if (typeof collection === 'object') {
+      for (var i in collection) {
+        result.push(iteratee(collection[i],i,collection))
+      }
+      return result
+    }
+  }
   return {
     chunk: chunk,
     compact: compact,
@@ -450,6 +489,9 @@ var weilianmosi = function(){
     zipObject: zipObject,
     every: every,
     forEach: forEach,
+    filter: filter,
+    includes: includes,
+    map: map,
   }
 }()
 
