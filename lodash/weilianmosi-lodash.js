@@ -388,6 +388,29 @@ var weilianmosi = function(){
     }
     return map
   }
+  function forEach(ary, action) {
+    for (var i in ary) {
+      action(ary[i])
+    }
+    return ary 
+  }
+  function every(collection, predicate) {
+    for (var i in collection) {
+      if (!predicate(collection[i],i,collection)) {
+        return false
+      }
+    }
+    return true
+  }
+  function filter(collection, test) {
+    var passed = []
+    for (var i in collection) {
+      if (test(collection[i],i,collection)) {
+        passed.push(collection[i])
+      }
+    }
+    return passed
+  }
   return {
     chunk: chunk,
     compact: compact,
@@ -395,6 +418,7 @@ var weilianmosi = function(){
     dropRight: dropRight,
     difference: difference,
     fill: fill,
+    reverse: reverse,
     flatten: flatten,
     flattenDeep: flattenDeep,
     flattenDepth: flattenDepth,
@@ -424,6 +448,8 @@ var weilianmosi = function(){
     xor: xor,
     zip: zip,
     zipObject: zipObject,
+    every: every,
+    forEach: forEach,
   }
 }()
 
